@@ -23,10 +23,14 @@ object strings  {
 
 
    def getSentenceType(sentence : String) : String = {
-     
-      "unknown"
+     if (sentence.endsWith ("?"))
+        "interrogative"
+       else if (sentence.endsWith("."))
+         "declarative"
+       else if (sentence.endsWith ("!"))
+         "exclamatory"
    }
-
+       
 /*
    Given a name as input.  Assume first and last names
    are separated by a space (no middle name).
@@ -41,7 +45,12 @@ object strings  {
 
    def getFormattedName(name : String) : String = {
      
-      "name not calculated yet"
+     ("Enter A Name") 
+    if (fullName contains " ") {
+        var Array(first, last)= fullName.split(" ")
+        (last + ", " + first) }
+   else{
+       (s"$fullName")"
    }
 
 }
