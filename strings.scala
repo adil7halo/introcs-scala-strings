@@ -1,6 +1,6 @@
 import scala.math.min
 
-object strings  {
+object strings {
 
 /*
 
@@ -29,8 +29,12 @@ object strings  {
          "declarative"
        else if (sentence.endsWith ("!"))
          "exclamatory"
-   }
+       else 
+        "unknown"
        
+ }
+   
+
 /*
    Given a name as input.  Assume first and last names
    are separated by a space (no middle name).
@@ -41,16 +45,18 @@ object strings  {
 
    If the name doesn't have any spaces in it (i.e. it is a single
    name, e.g. Madonna, return the name as is.
- */
-
-   def getFormattedName(name : String) : String = {
-     
-     ("Enter A Name") 
-    if (fullName contains " ") {
-        var Array(first, last)= fullName.split(" ")
-        (last + ", " + first) }
-   else{
-       (s"$fullName")"
-   }
-
+ 
+*/
+ 
+ 
+    def getFormattedName(name : String) : String = {
+            val lastSpacePosition = name.lastIndexOf(" ")
+            if (lastSpacePosition < 0)
+            name
+        else {
+            val firstNameParts = name.substring(0, lastSpacePosition)
+            val lastName = name.substring(lastSpacePosition+1)
+            lastName + ", " + firstNameParts
+        }
+    }
 }
